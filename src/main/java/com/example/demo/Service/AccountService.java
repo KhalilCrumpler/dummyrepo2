@@ -21,6 +21,10 @@ public class AccountService {
         return allAccounts;
     }
 
+    public Account getAccountByID(Long id){
+        return accountRepo.findById(id).get();
+    }
+
     public Account create(Account account){
         return accountRepo.save(account);
     }

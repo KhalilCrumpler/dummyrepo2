@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 @Service
 public class UserService {
     @Autowired
@@ -33,6 +35,10 @@ public class UserService {
     }
 
     public User findByName(String name){
-        return userRepo.findByEmail(name);
+        return userRepo.findByName(name);
+    }
+
+    public Set<Account> getUserAccounts(User user){
+        return userRepo.findById(user.getId()).get().getAccounts();
     }
 }
